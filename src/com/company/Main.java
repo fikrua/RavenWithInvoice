@@ -11,6 +11,8 @@ public class Main {
         ArrayList<String> chats = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         boolean done = true;
+        int negcounter = 0;
+        int postcounter = 0;
         String starter = "Raven: good moring how you feeling today";
         System.out.println(starter);
         chats.add(starter);
@@ -28,14 +30,17 @@ public class Main {
             int negLength = raven.getNegativeSize(negeative);
 
             if (poLength < negLength){
-                String response1 = "Raven: i am so happy for you ... yay ..";
-                System.out.println(response1);
-                chats.add(response1);
-            }
-            else if (negLength < poLength) {
                 String response1 = "Raven: Really! why, tell me more ";
                 System.out.println(response1);
                 chats.add(response1);
+                postcounter++;
+
+            }
+            else if (negLength < poLength) {
+                String response1 = "Raven: i am so happy for you ... yay ..";
+                System.out.println(response1);
+                chats.add(response1);
+                negcounter++;
             }
             else
             {
@@ -56,6 +61,14 @@ public class Main {
         for (String s:chats){
             System.out.println(s);
         }
+        System.out.println("\n total assessment ");
+
+        if(postcounter<negcounter)
+            System.out.println("this person seem postive ");
+        else if(negcounter<postcounter)
+            System.out.println("this person seem a negative ");
+        else
+            System.out.println("this person seems balanced ");
 
     }
 }

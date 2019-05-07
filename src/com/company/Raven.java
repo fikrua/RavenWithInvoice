@@ -31,16 +31,16 @@ public class Raven {
         return post;
     }
     public ArrayList<String> getNeg(String[] st){
-        ArrayList<String> post =new ArrayList<>();
+        ArrayList<String> neg =new ArrayList<>();
         String [ ] negative = {"bad", "sad", "tired", "angry", "anxious", "hungry", "moody", "afraid"};
         for(String s:st){
             for(String p:negative){
                 if(s.equalsIgnoreCase(p))
-                    post.add(s);
+                    neg.add(s);
             }
 
         }
-        return post;
+        return neg;
     }
 
 
