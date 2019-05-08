@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Raven {
     private String sayin ;
+    Invoice invoice = new Invoice();
 
     public String getSayin() {
         return sayin;

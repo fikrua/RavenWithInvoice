@@ -7,16 +7,38 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         Raven raven = new Raven();
         ArrayList<String> chats = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        System.out.print("enter your full name : ");
+        String name = scanner.nextLine();
+        System.out.print("enter your stadress : ");
+        String stAdress = scanner.nextLine();
+        System.out.print("enter the city : ");
+        String city = scanner.nextLine();
+        System.out.print("enter your state : ");
+        String stat = scanner.nextLine();
+        System.out.print("enter zip cod : ");
+        int zipcod = scanner.nextInt();
+        raven.invoice.setFullName(name);
+        raven.invoice.setStAddress(stAdress);
+        raven.invoice.setCity(city);
+        raven.invoice.setStat(stat);
+        raven.invoice.setZipCod(zipcod);
+
+        int qucounter = 0;
         boolean done = true;
         int negcounter = 0;
         int postcounter = 0;
         String starter = "Raven: good moring how you feeling today";
         System.out.println(starter);
         chats.add(starter);
+                scanner.nextLine();
+
         while (done==true) {
+            qucounter++;
+
 
             String response = scanner.nextLine();
             chats.add(response);
@@ -52,7 +74,7 @@ public class Main {
             String yes = scanner.nextLine();
             if(yes.equalsIgnoreCase("y")){
                 done = true ;
-            System.out.println("ok tell more as you wish  ");
+            System.out.println("ok tell me more as you wish  ");
             }
             else
                 done = false;
@@ -64,11 +86,16 @@ public class Main {
         System.out.println("\n total assessment ");
 
         if(postcounter<negcounter)
-            System.out.println("this person seem postive ");
+            System.out.println("this person seem postive \n");
         else if(negcounter<postcounter)
-            System.out.println("this person seem a negative ");
+            System.out.println("this person seem a negative \n");
         else
-            System.out.println("this person seems balanced ");
+            System.out.println("this person seems balanced \n");
+
+        raven.invoice.priceOfSession(1);
+        raven.invoice.priceofQu(qucounter);
+        raven.invoice.totalPirece();
+        raven.invoice.toStrings();
 
     }
 }
